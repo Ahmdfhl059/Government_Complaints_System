@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:government_complaints_system/shared/localization/app_localization.dart';
 
 import '../../../data/api/user_api.dart';
 import '../../../data/repo/user_repo.dart';
@@ -39,7 +40,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
             children: [
               Center(
                 child: DefaultText(
-                  text: 'forgot_password',
+                  text: 'forgot_password'.tr(context),
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
@@ -47,7 +48,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: DefaultText(
-                  text: 'password',
+                  text: 'password'.tr(context),
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
@@ -60,7 +61,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
                 iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
-                    return "error_password";
+                    return "error_password".tr(context);
                   } else {}
                 },
               ),
@@ -68,7 +69,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: DefaultText(
-                  text: 'confirm_password',
+                  text: 'confirm_password'.tr(context),
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
@@ -81,7 +82,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
                 iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
-                    return "error_password";
+                    return "error_password".tr(context);
                   } else {}
                 },
               ),
@@ -109,7 +110,7 @@ class ForgottenPasswordScreen extends StatelessWidget {
                       );
                     }
                     return DefaultButton(
-                      text: 'done',
+                      text: 'done'.tr(context),
                       onPress: () {
                         context.read<UserCubit>().studentForgotPassword(
                           email: email,

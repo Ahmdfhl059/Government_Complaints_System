@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:government_complaints_system/shared/localization/app_localization.dart';
 
 import '../../../shared/components/components.dart';
 import '../../../utils/constants.dart';
@@ -16,6 +17,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -28,7 +30,7 @@ class RegisterScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15),
                     child: DefaultText(
-                      text: 'انشاء حساب'.toUpperCase(),
+                      text: 'register'.tr(context).toUpperCase(),
                       style:TextStyle(fontSize: 30,fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -37,7 +39,7 @@ class RegisterScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'البريد الالكتروني',
+                    text: 'email'.tr(context),
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
@@ -49,7 +51,7 @@ class RegisterScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "error_email";
+                      return "error_email".tr(context);
                     } else {}
                   },
                 ),
@@ -57,7 +59,7 @@ class RegisterScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'كلمة السر',
+                    text: 'password'.tr(context),
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
@@ -70,7 +72,7 @@ class RegisterScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "error_password";
+                      return "error_password".tr(context);
                     } else {}
                   },
                 ),
@@ -78,7 +80,7 @@ class RegisterScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'تأكيد كلمة السر',
+                    text: 'confirm_password'.tr(context),
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
@@ -91,13 +93,13 @@ class RegisterScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "error_password";
+                      return "error_password".tr(context);
                     } else {}
                   },
                 ),
                 SizedBox(height: 30),
                 DefaultButton(
-                  text: 'التالي'.toUpperCase(),
+                  text: 'next'.tr(context).toUpperCase(),
                   onPress: () {
                     var email = registerEmailController;
                     var password = registerPasswordController;
@@ -128,11 +130,11 @@ class RegisterScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       DefaultText(
-                        text: "هل لديك حساب ؟ ",
+                        text: "Do_you_have_an_account".tr(context),
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       DefaultTextButton(
-                        text: 'تسجيل دخول'.toUpperCase(),
+                        text: 'login'.tr(context).toUpperCase(),
                         color: defaultColor,
                         size: 16,
                         onPressed: () {

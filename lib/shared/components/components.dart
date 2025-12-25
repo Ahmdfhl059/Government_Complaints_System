@@ -1,10 +1,14 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_holo_date_picker/date_picker.dart';
 import 'package:flutter_holo_date_picker/i18n/date_picker_i18n.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
 import 'package:government_complaints_system/utils/constants.dart';
 import 'package:intl/intl.dart';
+
+import '../../logic/local_cubit/local_cubit.dart';
+import '../../logic/local_cubit/local_state.dart';
 
 class CustomTextFormFiled extends StatefulWidget {
   final TextEditingController controller;
@@ -338,11 +342,11 @@ class _DatePickedState extends State<DatePicked> {
     );
   }
 }
-
 class DefaultListTile extends StatelessWidget {
   final String textTitle;
   final dynamic textSubTitle;
   final dynamic subTitle;
+  final bool isSubTitle;
   final dynamic overflowSubTitle;
   final dynamic maxLinesSubTitle;
   final dynamic leading;
@@ -357,8 +361,7 @@ class DefaultListTile extends StatelessWidget {
     this.trailing,
     this.overflowSubTitle,
     this.maxLinesSubTitle,
-    this.onTap,
-    this.subTitle,
+    this.onTap, this.subTitle, required this.isSubTitle,
   });
 
   @override
@@ -368,18 +371,20 @@ class DefaultListTile extends StatelessWidget {
 
       onTap: onTap,
       shape: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5),
-        borderSide: BorderSide(color: defaultColor),
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: secondaryColor),
       ),
       leading: leading,
       title: DefaultText(
         text: textTitle,
-        style:TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),
+        style: Theme.of(context).textTheme.labelMedium,
       ),
-      subtitle: DefaultText(
-              text: textSubTitle,
-              style: TextStyle(fontSize: 16,color: secondaryColor.withValues(alpha: 0.6)),
-            ),
+      subtitle:isSubTitle?DefaultText(
+        text: textSubTitle,
+        style: Theme.of(context).textTheme.bodySmall,
+        overflow: overflowSubTitle,
+        maxLines: maxLinesSubTitle,
+      ):subTitle,
       trailing: trailing,
       iconColor: Theme.of(context).iconTheme.color,
     );
@@ -441,53 +446,53 @@ class DefContainer extends StatelessWidget {
     );
   }
 }
-//
-// String? local;
-//
-// class Local extends StatelessWidget {
-//   const Local({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocBuilder<LocaleCubit, LocaleState>(
-//       builder: (context, state) {
-//         if (state is ChangeLocaleState) {
-//           return Padding(
-//             padding: const EdgeInsets.all(10),
-//             child: DropdownButton<String>(
-//               dropdownColor: Theme.of(context).primaryColor,
-//               iconEnabledColor: secondaryColor,
-//               borderRadius: BorderRadius.circular(15),
-//               underline: Center(),
-//               value: state.locale.languageCode,
-//               icon: Icon(Icons.keyboard_arrow_down),
-//               items: ['العربية', 'English'].map((String items) {
-//                 return DropdownMenuItem<String>(
-//                   value: items=='العربية'?'ar':'en',
-//                   child: DefaultText(
-//                     text: items,
-//                     style: Theme.of(context).textTheme.bodyLarge,
-//                   ),
-//                 );
-//               }).toList(),
-//               onChanged: (String? newValue) {
-//                 if (newValue != null) {
-//                   local = newValue;
-//                   print(local);
-//                   BlocProvider.of<LocaleCubit>(
-//                     context,
-//                   ).changeLanguage(newValue);
-//                 }
-//               },
-//             ),
-//           );
-//         } else {
-//           return SizedBox();
-//         }
-//       },
-//     );
-//   }
-// }
+
+String? local;
+
+class Local extends StatelessWidget {
+  const Local({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LocaleCubit, LocaleState>(
+      builder: (context, state) {
+        if (state is ChangeLocaleState) {
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: DropdownButton<String>(
+              dropdownColor: Colors.white,
+              iconEnabledColor: defaultColor,
+              borderRadius: BorderRadius.circular(15),
+              underline: Center(),
+              value: state.locale.languageCode,
+              icon: Icon(Icons.keyboard_arrow_down),
+              items: ['العربية', 'English'].map((String items) {
+                return DropdownMenuItem<String>(
+                  value: items=='العربية'?'ar':'en',
+                  child: DefaultText(
+                    text: items,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                if (newValue != null) {
+                  local = newValue;
+                  print(local);
+                  BlocProvider.of<LocaleCubit>(
+                    context,
+                  ).changeLanguage(newValue);
+                }
+              },
+            ),
+          );
+        } else {
+          return SizedBox();
+        }
+      },
+    );
+  }
+}
 
 class DefDropdownButton<T> extends StatefulWidget {
   final String hintText;

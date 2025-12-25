@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:government_complaints_system/screens/auth_screens/verification.dart';
+import 'package:government_complaints_system/shared/localization/app_localization.dart';
 
 import '../../../data/api/user_api.dart';
 import '../../../data/repo/user_repo.dart';
@@ -17,6 +18,7 @@ class RequestCodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: Theme.of(context).appBarTheme.iconTheme,
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -31,7 +33,7 @@ class RequestCodeScreen extends StatelessWidget {
             children: [
               Center(
                 child: DefaultText(
-                  text: 'forgot_password',
+                  text: 'forgot_password'.tr(context),
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
@@ -39,7 +41,7 @@ class RequestCodeScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: DefaultText(
-                  text: 'email',
+                  text: 'email'.tr(context),
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
@@ -51,7 +53,7 @@ class RequestCodeScreen extends StatelessWidget {
                 iconColor: secondaryColor,
                 validate: (String? value) {
                   if (value!.isEmpty) {
-                    return "error_email";
+                    return "error_email".tr(context);
                   } else {}
                 },
               ),
@@ -81,7 +83,7 @@ class RequestCodeScreen extends StatelessWidget {
                       );
                     }
                     return DefaultButton(
-                      text: 'next'.toUpperCase(),
+                      text: 'next'.tr(context).toUpperCase(),
                       onPress: () {
                         context
                             .read<UserCubit>()

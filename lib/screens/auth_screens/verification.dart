@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:government_complaints_system/shared/localization/app_localization.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../data/api/user_api.dart';
@@ -25,6 +26,7 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: Theme.of(context).appBarTheme.iconTheme,
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
@@ -36,13 +38,13 @@ class VerificationScreen extends StatelessWidget {
           children: [
             Center(
               child: DefaultText(
-                text: 'ادخل الكود',
+                text: 'enter_code'.tr(context),
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
             Center(
               child: DefaultText(
-                text: "تم ارسال الكود الى البريد الالكتروني",
+                text: "sent_code".tr(context),
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
@@ -111,7 +113,7 @@ class VerificationScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         DefaultText(
-                          text: 'اعادة ارسال الكود',
+                          text: 'resend_code'.tr(context),
                           style: TextStyle(color: defaultColor, fontSize: 16),
                         ),
                         Icon(

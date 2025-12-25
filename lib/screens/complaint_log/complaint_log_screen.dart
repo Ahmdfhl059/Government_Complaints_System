@@ -11,7 +11,7 @@ class ComplaintLogScreen extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
-            DefaultListTile(textTitle: 'شكوى لوزارة المياه',textSubTitle: 'sssss' ,trailing: Text('1/1/2025'),)
+           // DefaultListTile(textTitle: 'شكوى لوزارة المياه',textSubTitle: 'sssss' ,trailing: Text('1/1/2025'),)
           ],
         ),
       ),

@@ -7,7 +7,7 @@ import '../submit_complaint/submit_comlaint.dart';
 
 Widget buildItems(BuildContext context ,Agency agency) {
   String image=
-    'http://192.168.1.8:8000/storage/${agency.logo}';
+    'http://192.168.1.6:8000/storage/${agency.logo}';
   return InkWell(
     borderRadius: BorderRadius.circular(5),
     onTap: () {

@@ -5,7 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 const secureStorage = FlutterSecureStorage();
  List<String> genders(BuildContext context) => ['male', 'female'];
 
-final ipAddress = "http://192.168.1.8:8000";
+final ipAddress = "http://192.168.1.6:8000";
 final baseURL = "$ipAddress/api";
 final ip = ipAddress;
 

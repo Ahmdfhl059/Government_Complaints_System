@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_radio_group/flutter_radio_group.dart';
 import 'package:government_complaints_system/screens/auth_screens/verification.dart';
+import 'package:government_complaints_system/shared/localization/app_localization.dart';
 
 import '../../../data/api/user_api.dart';
 import '../../../data/repo/user_repo.dart';
@@ -30,6 +31,7 @@ class FillStudentDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
       ),
@@ -43,7 +45,7 @@ class FillStudentDataScreen extends StatelessWidget {
               children: [
                 Center(
                   child: DefaultText(
-                    text: 'معلومات المستخدم',
+                    text: 'user_information'.tr(context),
                     style:TextStyle(fontSize: 30,fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -51,7 +53,7 @@ class FillStudentDataScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'الاسم الاول',
+                    text: 'first_name'.tr(context),
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
@@ -63,7 +65,7 @@ class FillStudentDataScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "error_first_name ";
+                      return "error_first_name".tr(context);
                     } else {}
                   },
                 ),
@@ -71,7 +73,7 @@ class FillStudentDataScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'الاسم الثاني',
+                    text: 'last_name'.tr(context),
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
@@ -83,7 +85,7 @@ class FillStudentDataScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "error_last_name";
+                      return "error_last_name".tr(context);
                     } else {}
                   },
                 ),
@@ -91,7 +93,7 @@ class FillStudentDataScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: DefaultText(
-                    text: 'رقم الهاتف',
+                    text: 'phone'.tr(context),
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
@@ -103,7 +105,7 @@ class FillStudentDataScreen extends StatelessWidget {
                   iconColor: secondaryColor,
                   validate: (String? value) {
                     if (value!.isEmpty) {
-                      return "error_phone";
+                      return "error_phone".tr(context);
                     } else {}
                   },
                 ),
@@ -131,7 +133,7 @@ class FillStudentDataScreen extends StatelessWidget {
                         );
                       }
                       return DefaultButton(
-                        text: 'تــم',
+                        text: 'done'.tr(context).toUpperCase(),
                         onPress: () {
                           context.read<UserCubit>().userRegister(
                             email: email,
