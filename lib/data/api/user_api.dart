@@ -72,21 +72,6 @@ class UserApi {
     );
     return response.data;
   }
-
-  Future<Map<String, dynamic>> fillStudentData({
-    required Map<String, dynamic>
-    data, //first,last name , gender, grade_id, area_id
-  }) async {
-    var token = SecureStorage.getToken();
-
-    final response = await RemoteApi.post(
-      EndPoints.fillStudentData,
-      headers: headersWithAuth(await token),
-      body: data,
-    );
-    return response.data;
-  }
-
   Future<Map<String, dynamic>> studentLogout() async {
     var token = SecureStorage.getToken();
     final response = await RemoteApi.post(

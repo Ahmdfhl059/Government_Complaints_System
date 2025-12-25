@@ -5,7 +5,6 @@ Map<String, String> headersWithAuthContent(String token) => {
 
 Map<String, String> headersWithAuth(String token) => {
   'Accept': 'application/json',
-  'Content-Type': 'application/json',
   'Authorization': 'Bearer $token',
 };
 

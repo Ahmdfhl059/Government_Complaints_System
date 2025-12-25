@@ -30,12 +30,8 @@ class Citizen {
     );
   }
 
-  factory Citizen.initial() => Citizen(
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-  );
+  factory Citizen.initial() =>
+      Citizen(firstName: '', lastName: '', email: '', phone: '');
 
   Citizen copyWith({
     int? id,

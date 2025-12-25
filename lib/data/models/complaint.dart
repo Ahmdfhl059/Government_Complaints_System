@@ -1,4 +1,5 @@
 import 'agencies.dart';
+import 'cities.dart';
 import 'citizen.dart';
 import 'complaintStatus.dart';
 import 'complaint_type.dart';
@@ -13,7 +14,7 @@ class Complaint {
   final String description;
   final List<String> documents;
   final String location;
-  final City city;
+  final Cities city;
   final String createdAt;
   final String updatedAt;
 
@@ -43,7 +44,7 @@ class Complaint {
       description: map['description'] ?? '',
       documents: List<String>.from(map['documents'] ?? []),
       location: map['location'] ?? '',
-      city: City.fromMap(map['city'] ?? {}),
+      city: Cities.fromMap(map['city'] ?? {}),
       createdAt: map['created_at'] ?? '',
       updatedAt: map['updated_at'] ?? '',
     );
@@ -59,7 +60,7 @@ class Complaint {
     description: '',
     documents: const [],
     location: '',
-    city: City.initial(),
+    city: Cities.initial(),
     createdAt: '',
     updatedAt: '',
   );

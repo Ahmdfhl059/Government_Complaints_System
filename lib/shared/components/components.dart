@@ -489,43 +489,56 @@ class DefContainer extends StatelessWidget {
 //   }
 // }
 
-class DefDropdownButton extends StatelessWidget {
+class DefDropdownButton<T> extends StatefulWidget {
   final String hintText;
-  final List<String> governorates;
+  final List<T> items;
+  final String Function(T) itemAsString;
+  final ValueChanged<T?>? onChanged;
 
   const DefDropdownButton({
     super.key,
     required this.hintText,
-    required this.governorates,
+    required this.items,
+    required this.itemAsString,
+    this.onChanged,
   });
 
   @override
+  State<DefDropdownButton<T>> createState() => _DefDropdownButtonState<T>();
+}
+
+class _DefDropdownButtonState<T> extends State<DefDropdownButton<T>> {
+  T? selectedItem;
+
+  @override
   Widget build(BuildContext context) {
-    String? selectedGovernorate;
-    return DropdownButtonFormField2<String>(
+    return DropdownButtonFormField2<T>(
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: defaultColor, width: 2),
         ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: defaultColor, width: 2),
-        ),
       ),
-
-      hint: Text(hintText),
-      value: selectedGovernorate,
-      items: governorates.map((g) {
-        return DropdownMenuItem(value: g, child: Text(g));
+      hint: Text(widget.hintText),
+      value: selectedItem,
+      items: widget.items.map((item) {
+        return DropdownMenuItem<T>(
+          value: item,
+          child: Text(widget.itemAsString(item)),
+        );
       }).toList(),
-
-      onChanged: (value) {
-        selectedGovernorate = value!;
+      onChanged: widget.items.isEmpty
+          ? null
+          : (value) {
+        setState(() {
+          selectedItem = value;
+        });
+        if (widget.onChanged != null) {
+          widget.onChanged!(value);
+        }
       },
-
       dropdownStyleData: DropdownStyleData(
         maxHeight: 200,
-
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),

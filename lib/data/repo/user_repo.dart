@@ -114,31 +114,6 @@ class UserRepo {
       rethrow;
     }
   }
-  Future<Citizen> fillStudentData({
-    required String firstName,
-    required String lastName,
-    required String phoneNumber,
-    required String gender,
-    int? age,
-  }) async {
-    try {
-      final response = await api.fillStudentData(
-        data: {
-          "first_name": firstName,
-          "last_name": lastName,
-          "gender": gender,
-          "phone_number": phoneNumber,
-          "age": age,
-          //add the age if it exists
-        },
-      );
-      final Citizen student = Citizen.fromMap(response['data']);
-      return student;
-    } catch (e) {
-      print('error in repo :${e.toString()}');
-      rethrow;
-    }
-  }
 
   Future<String> studentLogout() async {
     try {

@@ -1,3 +1,5 @@
+import 'cities.dart';
+
 class Agency {
   final int id;
   final String name;
@@ -8,7 +10,7 @@ class Agency {
   final String email;
   final String phone;
   final String address;
-  final City city;
+  final Cities city;
 
   Agency({
     required this.id,
@@ -34,7 +36,7 @@ class Agency {
       email: map['email'] ?? '',
       phone: map['phone'] ?? '',
       address: map['address'] ?? '',
-      city: City.fromMap(map['city'] ?? {}),
+      city: Cities.fromMap(map['city'] ?? {}),
     );
   }
 
@@ -63,104 +65,11 @@ class Agency {
     email: '',
     phone: '',
     address: '',
-    city: City.initial(),
+    city: Cities.initial(),
   );
 }
-class City {
-  final int id;
-  final String name;
-  final String slug;
-  final String? image;
-  final String? zipCode;
-  final StateModel state;
 
-  City({
-    required this.id,
-    required this.name,
-    required this.slug,
-    this.image,
-    this.zipCode,
-    required this.state,
-  });
 
-  factory City.fromMap(Map<String, dynamic> map) {
-    return City(
-      id: map['id'] ?? -1,
-      name: map['name'] ?? '',
-      slug: map['slug'] ?? '',
-      image: map['image'],
-      zipCode: map['zip_code'],
-      state: StateModel.fromMap(map['state'] ?? {}),
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'slug': slug,
-      'image': image,
-      'zip_code': zipCode,
-      'state': state.toMap(),
-    };
-  }
-
-  factory City.initial() =>
-      City(
-        id: -1,
-        name: '',
-        slug: '',
-        state: StateModel.initial(),
-      );
-}
-class StateModel {
-  final int id;
-  final String name;
-  final String slug;
-  final String abbreviation;
-  final String? image;
-  final Country country;
-
-  StateModel({
-    required this.id,
-    required this.name,
-    required this.slug,
-    required this.abbreviation,
-    this.image,
-    required this.country,
-  });
-
-  factory StateModel.fromMap(Map<String, dynamic> map) {
-    return StateModel(
-      id: map['id'] ?? -1,
-      name: map['name'] ?? '',
-      slug: map['slug'] ?? '',
-      abbreviation: map['abbreviation'] ?? '',
-      image: map['image'],
-      country: Country.fromMap(map['country'] ?? {}),
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'slug': slug,
-      'abbreviation': abbreviation,
-      'image': image,
-      'country': country.toMap(),
-    };
-  }
-
-  factory StateModel.initial() =>
-      StateModel(
-        id: -1,
-        name: '',
-        slug: '',
-        abbreviation: '',
-        country: Country.initial(),
-      );
-}
 class Country {
   final int id;
   final String name;
