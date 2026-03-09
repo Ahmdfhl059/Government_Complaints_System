@@ -1,16 +1,49 @@
-# government_complaints_system
+Government Complaints System 🏛️
+A digital platform designed to digitize and streamline the government complaint submission and tracking process, ensuring a seamless communication channel between citizens and government entities.
 
-A new Flutter project.
+🚀 Overview
+The Government Complaints System is a mobile application developed to automate the lifecycle of public complaints. It focuses on providing a user-friendly interface for citizens to submit issues and track their status in real-time, bridging the gap between the public and administrative departments.
 
-## Getting Started
+🛠 Tech Stack
+Framework: Flutter (Dart)
 
-This project is a starting point for a Flutter application.
+Architecture: MVC (Model-View-Controller)
 
-A few resources to get you started if this is your first Flutter project:
+State Management: Bloc/Cubit
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Networking: Dio (RESTful API integration)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+API Testing: Postman
+
+Local Storage: Shared Preferences
+
+💡 Project Methodology & Development
+Requirements Engineering: Conducted professional stakeholder interviews to gather and analyze functional and non-functional requirements for the complaint workflow.
+
+System Architecture: Implemented a modular and clean architecture to separate concerns, ensuring high maintainability and scalability.
+
+Implementation: Led the frontend development phase, ensuring a responsive UI and reliable backend integration via RESTful APIs.
+
+📁 Repository Structure
+
+/lib
+├── /logic              # Business logic components using Bloc/Cubit.
+├── /data
+│   ├── /api            # API service definitions and request handling.
+│   ├── /models         # Data models for complaint entities.
+│   ├── /repo           # Repository layer for data abstraction.
+│   └── /shared         # Dio core configurations and utility classes.
+├── /view/screens       # UI screens (Dashboard, Complaint submission, Tracking, etc.)
+└── /layout             # App layout and structure.
+
+🤝 Key Capabilities
+
+This project demonstrates my proficiency in:
+
+Translating business requirements into robust technical features.
+
+Clean Code principles: Organizing logic, data, and presentation layers effectively.
+
+API Integration: Handling asynchronous data communication and error management using Dio.
+
+Lifecycle Management: Developing complete mobile solutions from requirement gathering to deployment.
