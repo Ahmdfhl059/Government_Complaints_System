@@ -29,7 +29,7 @@ The **Government Complaints System** is a mobile application developed to automa
 │   └── /shared         # Dio core configurations and utility classes.
 ├── /view/screens       # UI screens (Dashboard, Complaint submission, Tracking, etc.)
 └── /layout             # App layout and structure.
-
+```text
 🤝 Key Capabilities
 This project demonstrates my proficiency in:
 
