@@ -19,7 +19,7 @@ The **Government Complaints System** is a mobile application developed to automa
 - **Implementation:** Led the frontend development phase, ensuring a responsive UI and reliable backend integration via RESTful APIs.
 
 ## 📁 Repository Structure
-```text
+
 /lib
 ├── /logic              # Business logic components using Bloc/Cubit.
 ├── /data
