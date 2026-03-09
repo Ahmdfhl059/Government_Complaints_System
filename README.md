@@ -29,13 +29,14 @@ The **Government Complaints System** is a mobile application developed to automa
 │   └── /shared         # Dio core configurations and utility classes.
 ├── /view/screens       # UI screens (Dashboard, Complaint submission, Tracking, etc.)
 └── /layout             # App layout and structure.
-##🤝 Key Capabilities
-- **This project demonstrates my proficiency in:
 
-- **Translating business requirements into robust technical features.
+## 🤝 Key Capabilities
+This project demonstrates my proficiency in:
 
-- **Clean Code principles: Organizing logic, data, and presentation layers effectively.
+- **Translating business requirements** into robust technical features.
 
-- **API Integration: Handling asynchronous data communication and error management using Dio.
+- **Clean Code principles:** Organizing logic, data, and presentation layers effectively.
 
-- **Lifecycle Management: Developing complete mobile solutions from requirement gathering to deployment.
+- **API Integration:** Handling asynchronous data communication and error management using Dio.
+
+- **Lifecycle Management:** Developing complete mobile solutions from requirement gathering to deployment.
